@@ -114,7 +114,7 @@ Car.prototype.fill = function(gallons){
 const carTwo = new Car('Camaro', 33);
 const carThree = new Car('Corvette', 41);
 
-console.log(carOne.toString());
+/*console.log(carOne.toString());
 console.log(carTwo.toString());
 console.log(carThree.toString());
 
@@ -126,7 +126,7 @@ console.log(carTwo.tank);
 
 carTwo.drive();
 
-console.log(carTwo.tank);
+console.log(carTwo.tank);*/
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -134,23 +134,26 @@ console.log(carTwo.tank);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby((name, age,){
-  this.name = name;
-  this.age = age;
-  this.stomach = [];
-  this.favoriteToy = x;
+function Baby(name, age,stomach ) {
+  Person.bind(this, name, age, stomach, favoriteToy);
+  this.favoriteToy = 'x';
 } 
-Person.prototype.play()
 
-console.log(`Playing with, ${favoriteToy}`)
+Person.prototype.play=function(){
+  console.log(`Playing with ,${this.favoriteToy}`)
+};
+
+const babyOne = new Person('Lorelie', '1_month');
+
+console.log(babyOne.play())
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. 'this refers to an object within a function'
+  2. when not within a function it refers to the global or window object
+  3. the object to the left of the dot is the value of this
+  4. this inside of a constructor refers to the newly created object
 */
 
 
