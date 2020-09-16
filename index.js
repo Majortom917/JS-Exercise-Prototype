@@ -63,19 +63,19 @@ const personOne = new Person('Tom', 24);
 const personTwo = new Person('Dick', 33);
 const personThree = new Person('Llarry', 41);
 
-console.log(personOne.toString());
-console.log(personTwo.toString());
-console.log(personThree.toString());
+//console.log(personOne.toString());
+//console.log(personTwo.toString());
+//console.log(personThree.toString());
 
-personTwo.eat('Marshmellow');
-personTwo.eat('Pizza');
-personTwo.eat('Meatloaf');
+//personTwo.eat('Marshmellow');
+//personTwo.eat('Pizza');
+//personTwo.eat('Meatloaf');
 
-console.log(personTwo.stomach);
+//console.log(personTwo.stomach);
 
-personTwo.poop();
+//personTwo.poop();
 
-console.log(personTwo.stomach);
+//console.log(personTwo.stomach);
 
 /*
   TASK 2
@@ -91,10 +91,42 @@ console.log(personTwo.stomach);
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model= model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = [0];
+  this.odometer = []
 }
 
+  Car.prototype.drive= function(){
+  this.tank= []
+  }
+
+Car.prototype.fill = function(gallons){
+  if(this.tank.length < 10){
+    this.tank.push(gallons);
+  }
+}
+  Car.prototype.toString = function(){
+    return `${this.model}, ${this.milesPerGallon}`;
+  }
+  const carOne = new Car('Mustang', 24);
+const carTwo = new Car('Camaro', 33);
+const carThree = new Car('Corvette', 41);
+
+console.log(carOne.toString());
+console.log(carTwo.toString());
+console.log(carThree.toString());
+
+carTwo.fill(5);
+carTwo.fill(5);
+carTwo.fill(0);
+
+console.log(carTwo.tank);
+
+carTwo.drive();
+
+console.log(carTwo.tank);
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -102,10 +134,15 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby((name, age,){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+  this.favoriteToy = x;
+} 
+Person.prototype.play()
 
-}
-
+console.log(`Playing with, ${favoriteToy}`)
 /* 
   TASK 4
 
@@ -126,4 +163,4 @@ if (typeof exports !== 'undefined') {
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }
-}
+};
