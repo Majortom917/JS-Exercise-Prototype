@@ -94,19 +94,19 @@ const personThree = new Person('Llarry', 41);
 function Car(model, milesPerGallon) {
   this.model= model;
   this.milesPerGallon = milesPerGallon;
-  this.tank = [0];
-  this.odometer = []
+  this.tank = 0;
+  this.odometer = 0
 }
 
   Car.prototype.drive= function(){
-  this.tank= []
+  this.tank= 0
   }
 
 Car.prototype.fill = function(gallons){
-  if(this.tank.length < 10){
-    this.tank.push(gallons);
+   return  this.tank += gallons
   }
-}
+
+
   Car.prototype.toString = function(){
     return `${this.model}, ${this.milesPerGallon}`;
   }
@@ -134,18 +134,22 @@ console.log(carTwo.tank);*/
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(name, age,stomach ) {
-  Person.bind(this, name, age, stomach, favoriteToy);
-  this.favoriteToy = 'x';
+function Baby(name, age, favoriteToy) {
+  Person.call(this, favoriteToy);
+  this.name= name
+  this.age=age
+  this.favoriteToy = favoriteToy;
 } 
+Baby.prototype=Object.create(Person.prototype);
 
-Person.prototype.play=function(){
-  console.log(`Playing with ,${this.favoriteToy}`)
+Baby.prototype.play=function(){
+  return `Playing with ${this.favoriteToy}`
 };
 
-const babyOne = new Person('Lorelie', '1_month');
+const babyOne = new Baby('Lorelie', '1_month', 'rattle',);
 
-console.log(babyOne.play())
+console.log(babyOne.play());
+console.log(babyOne.toString());
 /* 
   TASK 4
 
